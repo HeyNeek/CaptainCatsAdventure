@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://d27uivapx0k1u"]
+
+[ext_resource type="Texture2D" uid="uid://s0kerv0stqph" path="res://assets/sprites/water_tile.png" id="1_gkp1e"]
+[ext_resource type="Script" path="res://scenes/water_tile_map.gd" id="2_qqy1g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5hug"]
+texture = ExtResource("1_gkp1e")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5f0d0"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_h5hug")
+
+[node name="WaterTileMap" type="TileMapLayer"]
+tile_set = SubResource("TileSet_5f0d0")
+script = ExtResource("2_qqy1g")
