@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://eeyrgxujcchu"]
+
+[ext_resource type="FontFile" uid="uid://cuy6nr1ufkaki" path="res://assets/fonts/Daydream.ttf" id="1_3oj0u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ebm0c"]
+font = ExtResource("1_3oj0u")
+font_size = 12
+font_color = Color(0.919476, 0, 0.00138087, 1)
+
+[node name="DockShipMessage" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Dock ship?
+
+         Y/N?"
+label_settings = SubResource("LabelSettings_ebm0c")
