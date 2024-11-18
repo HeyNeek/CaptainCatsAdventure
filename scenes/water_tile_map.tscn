@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d27uivapx0k1u"]
 
 [ext_resource type="Texture2D" uid="uid://s0kerv0stqph" path="res://assets/sprites/water_tile.png" id="1_gkp1e"]
-[ext_resource type="Script" path="res://scenes/water_tile_map.gd" id="2_qqy1g"]
+[ext_resource type="Script" path="res://scripts/water_tile_map.gd" id="2_qqy1g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5hug"]
 texture = ExtResource("1_gkp1e")

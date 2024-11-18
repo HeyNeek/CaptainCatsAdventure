@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://1w3nc06xios8"]
 
 [ext_resource type="Texture2D" uid="uid://b85p5tqnp7iyx" path="res://assets/sprites/basic_island.png" id="1_h4plv"]
-[ext_resource type="Script" path="res://scenes/basic_island.gd" id="1_mbfro"]
+[ext_resource type="Script" path="res://scripts/basic_island.gd" id="1_mbfro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jw4dx"]
 size = Vector2(54, 15)
