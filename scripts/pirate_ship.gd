@@ -26,13 +26,6 @@ func _physics_process(delta):
 	if is_active:
 		handle_ship_movement()
 		move_and_slide()
-		
-		#TODO: This is an inconsistent way to check collision, probably should use an Area2d or someshit idk
-		var collision = move_and_collide(velocity * delta)
-		if collision:
-			var collider = collision.get_collider()
-			if collider.is_in_group("islands"):  # Optional: Check if it's part of a specific group
-				dock_ship()
 	else:
 		decide_to_dock()
 
@@ -74,12 +67,14 @@ func handle_ship_movement():
 	if velocity.y < -100:
 		velocity.y = -100
 
+#function that pauses movement of PirateShip and instantiates DockShipMessage scene
 func dock_ship():
 	is_active = false
 	dock_message_instance = dock_message.instantiate()
 	self.add_child(dock_message_instance)
 	dock_message_instance.global_position.y += 50
 
+#function that asks checks for player input Y/N on whether or not to dock ship and enter level
 func decide_to_dock():
 	#TODO: need to add some sort of way to figure out what scene to enter in, not really sure how Im going to go about this. 
 	#Either way, should probably limit island amount to something tiny for now. Maybe 6?
