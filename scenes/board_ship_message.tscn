@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://4jo5ipvagcpa"]
+
+[ext_resource type="FontFile" uid="uid://cuy6nr1ufkaki" path="res://assets/fonts/Daydream.ttf" id="1_3gt2c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6xp10"]
+font = ExtResource("1_3gt2c")
+font_size = 12
+font_color = Color(0.917647, 0, 0, 1)
+
+[node name="Label" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Board Ship?
+
+             Y/N"
+label_settings = SubResource("LabelSettings_6xp10")

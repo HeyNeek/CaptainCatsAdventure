@@ -6,4 +6,4 @@ extends StaticBody2D
 func _on_area_2d_body_entered(body):
 	if body.name == "PirateShip":
 		print("PirateShip is hitting island!")
-		body.dock_ship()
+		body.dock_ship(self.name)

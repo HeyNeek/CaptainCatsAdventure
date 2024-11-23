@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l4x4fpu2evjp"]
+
+[ext_resource type="Texture2D" uid="uid://sdtmcprjmhlb" path="res://assets/sprites/big_docked_ship.png" id="1_oedpm"]
+
+[node name="DockedShipSprite" type="Sprite2D"]
+texture = ExtResource("1_oedpm")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu22h7d2n2lrq"]
+
+[ext_resource type="Texture2D" uid="uid://bvvepxjw1qgww" path="res://assets/sprites/palm_tree.png" id="1_0dtn7"]
+
+[node name="TreeSprite" type="Sprite2D"]
+texture = ExtResource("1_0dtn7")

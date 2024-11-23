@@ -12,11 +12,13 @@ var pirate_ship_textures = [
 	preload("res://assets/sprites/pirate_ship_2_down.png")
 ]
 var is_active = true #var to decide whether or not the ship can move
+var island_touched_name
 
 const SAIL_SPEED = 75.0
 
 func _ready():
 	#set camera limit so it doesnt see the out of bounds
+	self.global_position = Global.last_known_ship_position
 	player_camera.limit_left = 0
 	player_camera.limit_right = 2525
 	player_camera.limit_top = 0
@@ -68,11 +70,22 @@ func handle_ship_movement():
 		velocity.y = -100
 
 #function that pauses movement of PirateShip and instantiates DockShipMessage scene
-func dock_ship():
+func dock_ship(island_name):
 	is_active = false
 	dock_message_instance = dock_message.instantiate()
 	self.add_child(dock_message_instance)
 	dock_message_instance.global_position.y += 50
+	
+	island_touched_name = island_name
+
+func go_to_level():
+	print(island_touched_name)
+	
+	match island_touched_name:
+		"BasicIsland":
+			get_tree().change_scene_to_file("res://scenes/basic_island_level_1.tscn")
+			Global.last_known_ship_position.x = self.global_position.x
+			Global.last_known_ship_position.y = self.global_position.y + 50
 
 #function that asks checks for player input Y/N on whether or not to dock ship and enter level
 func decide_to_dock():
@@ -80,6 +93,7 @@ func decide_to_dock():
 	#Either way, should probably limit island amount to something tiny for now. Maybe 6?
 	if Input.is_action_just_pressed("yes_option"):
 		print("WE ENTERING DA LEVEL")
+		go_to_level()
 	
 	if Input.is_action_just_pressed("no_action"):
 		print("made it in the no")
