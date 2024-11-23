@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var captain_cat_sprite = $Sprite2D
+@onready var captain_cat_sprite = $AnimatedSprite2D
 @onready var captain_cat_camera = $Camera2D
 
 const SPEED = 100
@@ -17,6 +17,8 @@ func _ready():
 	captain_cat_camera.limit_bottom = 671
 
 func _physics_process(delta):
+	handle_animation()
+	
 	if is_active:
 		handle_movement(delta)
 		move_and_slide()
@@ -43,3 +45,10 @@ func handle_movement(delta):
 	
 	if self.velocity.x < -100:
 		self.velocity.x = -100
+
+func handle_animation():
+	if self.velocity.x == 0:
+		captain_cat_sprite.play("idle")
+	
+	if self.velocity.x > 0 || self.velocity.x < 0:
+		captain_cat_sprite.play("running")

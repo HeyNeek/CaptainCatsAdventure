@@ -25,6 +25,7 @@ func _on_exit_area_body_entered(body):
 	if body.name == "CaptainCat":
 		print("Hi captain cat! :3")
 		body.is_active = false
+		body.captain_cat_sprite.play("idle")
 		should_decide_to_leave = true
 		
 		board_ship_message_instance = board_ship_message_scene.instantiate()
