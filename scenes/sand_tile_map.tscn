@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bweog2mm1a1rd"]
+
+[ext_resource type="Texture2D" uid="uid://yeh8q8x5reru" path="res://assets/sprites/sand_tile.png" id="1_hf1jo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fu8wr"]
+texture = ExtResource("1_hf1jo")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_7jdt4"]
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 8
+sources/0 = SubResource("TileSetAtlasSource_fu8wr")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_7jdt4")
+format = 2
