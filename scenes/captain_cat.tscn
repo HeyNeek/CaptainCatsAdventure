@@ -1,8 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cm02t5caihvab"]
+[gd_scene load_steps=18 format=3 uid="uid://cm02t5caihvab"]
 
 [ext_resource type="Script" path="res://scripts/captain_cat.gd" id="1_dg0nh"]
+[ext_resource type="Texture2D" uid="uid://b74bimrmc0psq" path="res://assets/sprites/Sprite Sheets/captain_cat_falling.png" id="2_nhur7"]
 [ext_resource type="Texture2D" uid="uid://kejjbclodssf" path="res://assets/sprites/Sprite Sheets/captain_cat_idle_sheet.png" id="2_o0hxy"]
+[ext_resource type="Texture2D" uid="uid://32hnxk4l6vh6" path="res://assets/sprites/Sprite Sheets/captain_cat_jump.png" id="3_ibpgv"]
 [ext_resource type="Texture2D" uid="uid://if4iqurafh3c" path="res://assets/sprites/Sprite Sheets/captain_cat_basic_walking_sheet.png" id="3_lgv4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlw1a"]
+atlas = ExtResource("2_nhur7")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st66g"]
 atlas = ExtResource("2_o0hxy")
@@ -19,6 +25,10 @@ region = Rect2(128, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3o1rr"]
 atlas = ExtResource("2_o0hxy")
 region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l2gr"]
+atlas = ExtResource("3_ibpgv")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofuw8"]
 atlas = ExtResource("3_lgv4t")
@@ -40,6 +50,14 @@ region = Rect2(0, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hlw1a")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_st66g")
 }, {
 "duration": 1.0,
@@ -54,6 +72,14 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l2gr")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -83,9 +109,8 @@ script = ExtResource("1_dg0nh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lrmnd")
-animation = &"running"
+animation = &"falling"
 autoplay = "idle"
-frame_progress = 0.267561
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 3.5)
