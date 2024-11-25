@@ -24,7 +24,6 @@ func _physics_process(delta):
 		move_and_slide()
 
 func handle_movement(delta):
-	print(self.velocity.y)
 	if is_on_floor() == false:
 		self.velocity.y += GRAVITY * delta
 	
@@ -60,3 +59,6 @@ func handle_animation():
 	if self.velocity.x > 0 || self.velocity.x < 0:
 		if is_on_floor():
 			captain_cat_sprite.play("running")
+
+func take_damage():
+	pass

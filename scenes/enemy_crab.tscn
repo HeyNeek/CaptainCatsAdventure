@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://csbpbeft00cyi"]
+
+[ext_resource type="Script" path="res://scripts/enemy_crab.gd" id="1_p3wse"]
+[ext_resource type="Texture2D" uid="uid://ngfsug1jxpk5" path="res://assets/sprites/Sprite Sheets/crab_sheet.png" id="1_p6wno"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itgkx"]
+atlas = ExtResource("1_p6wno")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl6yb"]
+atlas = ExtResource("1_p6wno")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyno2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itgkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl6yb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrh45"]
+size = Vector2(24, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72u3l"]
+size = Vector2(68, 18)
+
+[node name="EnemyCrab" type="CharacterBody2D"]
+script = ExtResource("1_p3wse")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("SpriteFrames_iyno2")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_vrh45")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_72u3l")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

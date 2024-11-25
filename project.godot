@@ -80,6 +80,7 @@ cat_jump={
 2d_physics/layer_3="terrain"
 2d_physics/layer_4="captain_cat"
 2d_physics/layer_5="exit_area"
+2d_physics/layer_6="common_enemy"
 
 [rendering]
 

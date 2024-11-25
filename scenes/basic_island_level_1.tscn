@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cws2w77pmwm2o"]
+[gd_scene load_steps=8 format=3 uid="uid://cws2w77pmwm2o"]
 
 [ext_resource type="PackedScene" uid="uid://bweog2mm1a1rd" path="res://scenes/sand_tile_map.tscn" id="1_5ynfr"]
 [ext_resource type="Script" path="res://scripts/basic_island_level_1.gd" id="1_jhtna"]
 [ext_resource type="PackedScene" uid="uid://cm02t5caihvab" path="res://scenes/captain_cat.tscn" id="2_myd00"]
 [ext_resource type="PackedScene" uid="uid://bu22h7d2n2lrq" path="res://scenes/tree_sprite.tscn" id="3_iija3"]
 [ext_resource type="PackedScene" uid="uid://l4x4fpu2evjp" path="res://scenes/docked_ship_sprite.tscn" id="5_g43kl"]
+[ext_resource type="PackedScene" uid="uid://csbpbeft00cyi" path="res://scenes/enemy_crab.tscn" id="6_rg0pn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54rav"]
 size = Vector2(29, 126)
@@ -17,6 +18,7 @@ layer_0/tile_data = PackedInt32Array(720896, 0, 0, 786432, 0, 1, 720897, 65536, 
 
 [node name="CaptainCat" parent="." instance=ExtResource("2_myd00")]
 position = Vector2(76, 74)
+collision_mask = 36
 
 [node name="TreeSprite" parent="." instance=ExtResource("3_iija3")]
 z_index = -1
@@ -41,5 +43,10 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
 position = Vector2(15.5, 114)
 shape = SubResource("RectangleShape2D_54rav")
+
+[node name="EnemyCrab" parent="." instance=ExtResource("6_rg0pn")]
+position = Vector2(412, 168)
+collision_layer = 32
+collision_mask = 8
 
 [connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]
